@@ -22,9 +22,19 @@ function onReady() {
 
    //EVENTS
    //even handler
-   $('#clickedButton').on('click', function() {
-       console.log('I was clicked');
-   }); 
+   $('#addPersonButton').on('click', function() {
+       let newPersonName = $('#nameInput').val();
+       console.log(newPersonName);
+       $('#personList').append('<li>' + newPersonName + ' ' + '<button class="deleteButton">delete</button>' + '</li>');
+       
+}); 
+
+$('#personList').on('click', '.deleteButton', function(){
+    console.log('Delete button was clicked.');
+    $(this).parent().remove();
+});
+
+
 }
 
 
